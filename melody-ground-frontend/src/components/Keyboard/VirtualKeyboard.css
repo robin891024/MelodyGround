@@ -1,0 +1,85 @@
+.virtual-keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background-color: transparent;
+  width: 100%;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.keyboard-key {
+  position: relative;
+  width: 70px;
+  height: 60px;
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.keyboard-key:hover {
+  border-color: #8b5cf6;
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.2);
+}
+
+.keyboard-key.active {
+  background-color: #8b5cf6;
+  border-color: #8b5cf6;
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.4);
+  transform: scale(1.02);
+}
+
+.key-label {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.note-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.keyboard-key.active .key-label,
+.keyboard-key.active .note-label {
+  color: #ffffff;
+}
+
+/* Dark mode overrides if needed */
+.dark .keyboard-key {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+.dark .key-label {
+  color: #f1f5f9;
+}
+
+.dark .note-label {
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .keyboard-key {
+    width: 50px;
+    height: 50px;
+    border-radius: 0.5rem;
+  }
+  .key-label { font-size: 1rem; }
+  .note-label { font-size: 0.625rem; }
+}

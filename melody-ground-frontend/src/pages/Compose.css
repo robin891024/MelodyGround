@@ -1,0 +1,443 @@
+.compose-page {
+  width: 100%;
+  max-width: 1280px;
+  background-color: #1e293b;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid #334155;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  min-height: 700px;
+}
+
+.compose-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  items-center: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #334155;
+  background-color: #1e293b;
+  flex-shrink: 0;
+}
+
+.compose-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.compose-header h1::before {
+  content: '🎵';
+  background: #8b5cf6;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.user-info {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.nav-button, .logout-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-button {
+  background-color: #334155;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+}
+
+.nav-button:hover {
+  background-color: #475569;
+}
+
+.logout-button {
+  background-color: transparent;
+  color: #94a3b8;
+  border: 1px solid #334155;
+}
+
+.logout-button:hover {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+.compose-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+/* 啟動 Overlay */
+.init-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.init-alert {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .init-alert {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+}
+
+.init-alert-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.init-alert h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+}
+
+.dark .init-alert h2 {
+  color: #ffffff;
+}
+
+.init-alert p {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.dark .init-alert p {
+  color: #94a3b8;
+}
+
+.init-alert-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.3);
+}
+
+.init-alert-btn:hover {
+  background-color: #7c3aed;
+  transform: translateY(-2px);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.compose-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  overflow-y: auto;
+}
+
+.keyboard-section {
+  flex: 1;
+  background-color: rgba(15, 23, 42, 0.4);
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
+
+.keyboard-bottom-controls {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #334155;
+}
+
+.bottom-control-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bottom-control-item label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.volume-control-mini {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #0f172a;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #334155;
+}
+
+.volume-slider-mini {
+  flex: 1;
+  height: 4px;
+  background-color: #334155;
+  border-radius: 999px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.volume-slider-mini::-webkit-slider-thumb {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background-color: #8b5cf6;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.volume-value-mini {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  min-width: 2.5rem;
+  text-align: right;
+}
+
+.octave-select-mini {
+  width: 100%;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  cursor: pointer;
+}
+
+.keyboard-section h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #f1f5f9;
+}
+
+.status-messages {
+  margin-bottom: 1.5rem;
+}
+
+.init-notice, .loading-notice {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.init-notice {
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.loading-notice {
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  margin-top: 0.5rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #8b5cf6;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.compose-sidebar {
+  width: 360px;
+  background-color: rgba(15, 23, 42, 0.4);
+  border-left: 1px solid #334155;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.recording-indicator {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: center;
+}
+
+.recording-indicator::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 450px;
+}
+
+.modal-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  color: #f1f5f9;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.save-btn {
+  background-color: #8b5cf6;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: #94a3b8;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .compose-container {
+    flex-direction: column;
+  }
+  .compose-sidebar {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #334155;
+    height: auto;
+  }
+  .compose-page {
+    height: auto;
+  }
+}

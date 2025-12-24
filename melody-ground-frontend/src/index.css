@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+:root {
+  --primary: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --background-light: #f3f4f6;
+  --background-dark: #0f172a;
+  --surface-light: #ffffff;
+  --surface-dark: #1e293b;
+  --panel-light: #f8fafc;
+  --panel-dark: #334155;
+  
+  --text-slate-700: #334155;
+  --text-slate-800: #1e293b;
+  --text-slate-900: #0f172a;
+}
+
+/* 預設為深色模式風格 */
+:root.dark {
+  --bg-color: var(--background-dark);
+  --surface-color: var(--surface-dark);
+  --panel-color: rgba(15, 23, 42, 0.4);
+  --text-color: #f1f5f9;
+  --border-color: #334155;
+}
+
+:root {
+  --bg-color: var(--background-light);
+  --surface-color: var(--surface-light);
+  --panel-color: var(--panel-light);
+  --text-color: var(--text-slate-800);
+  --border-color: #e2e8f0;
+}
+
+/* 為了方便，我們暫時統一使用深色風格，因為使用者提供的範例看起來在深色模式下更美觀 */
+body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=range] {
+  -webkit-appearance: none; 
+  background: transparent; 
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none; 
+}
+
+/* 捲軸美化 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
