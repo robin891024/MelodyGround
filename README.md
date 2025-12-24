@@ -37,3 +37,4 @@
 - **JWT 驗證**：基於 Token 的身份驗證
 - **個人作品庫**：每位使用者擁有獨立的作品空間
 
+<img width="1919" height="867" alt="image" src="https://github.com/user-attachments/assets/56b25795-d134-41ce-b534-f9daeed97e43" />
