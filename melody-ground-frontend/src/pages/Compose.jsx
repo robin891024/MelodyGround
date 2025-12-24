@@ -24,6 +24,7 @@ const Compose = () => {
   const [showSaveDialog, setShowSaveDialog] = useState(false);
   const [compositionTitle, setCompositionTitle] = useState('');
   const [compositionDescription, setCompositionDescription] = useState('');
+  const [noteCount, setNoteCount] = useState(0); // 新增音符計數狀態
 
   // 1. 背景自動載入音源庫 (一進頁面就開始)
   useEffect(() => {
@@ -84,6 +85,24 @@ const Compose = () => {
       document.removeEventListener('keydown', handleFirstInteraction);
     };
   }, [isInitialized]);
+
+  // 3. 錄製時定期更新音符計數
+  useEffect(() => {
+    let intervalId;
+    if (isRecording) {
+      intervalId = setInterval(() => {
+        setNoteCount(recordingService.getNoteCount());
+      }, 100); // 每 100ms 更新一次
+    } else {
+      setNoteCount(0);
+    }
+    
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [isRecording]);
 
   // 切換樂器
   const handleInstrumentChange = (newInstrument) => {
@@ -245,7 +264,7 @@ const Compose = () => {
             />
             {isRecording && (
               <div className="recording-indicator">
-                🔴 錄製中... ({recordingService.getNoteCount()} 個音符)
+                🔴 錄製中... ({noteCount} 個音符)
               </div>
             )}
             
